@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/carllaliberte/dossier-protocol/schema/dossier.v0.json",
+  "title": "DOSSIER v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "dossier_id", "mode", "raisons", "simule", "juridiction", "langue", "pose_at"],
+  "properties": {
+    "format": { "const": "dossier.v0" },
+    "dossier_id": { "type": "string" },
+    "mode": { "enum": ["classique", "quantique"] },
+    "quelle_id": { "type": ["string", "null"] },
+    "temoin_id": { "type": ["string", "null"] },
+    "epsilon_id": { "type": ["string", "null"] },
+    "horizon_id": { "type": ["string", "null"] },
+    "bruit_id": { "type": ["string", "null"] },
+    "figure_id": { "type": ["string", "null"] },
+    "budget": { "type": ["number", "null"] },
+    "plafond": { "type": ["number", "null"] },
+    "marge": { "type": ["number", "null"] },
+    "raisons": { "type": "array", "items": { "type": "string" } },
+    "simule": { "type": "boolean" },
+    "juridiction": { "type": "string" },
+    "langue": { "type": "string" },
+    "pose_at": { "type": "string" },
+    "note": { "type": "string" }
+  }
+}

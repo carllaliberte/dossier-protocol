@@ -1,0 +1,20 @@
+{
+  "format": "dossier.v0",
+  "dossier_id": "DS-fictif-001",
+  "mode": "classique",
+  "quelle_id": null,
+  "temoin_id": null,
+  "epsilon_id": null,
+  "horizon_id": null,
+  "bruit_id": null,
+  "figure_id": null,
+  "budget": null,
+  "plafond": 1e-6,
+  "marge": null,
+  "raisons": ["quelle absente", "temoin absent", "epsilon absent", "horizon absent"],
+  "simule": true,
+  "juridiction": "QC",
+  "langue": "fr-CA",
+  "pose_at": "2026-08-31T22:18:00Z",
+  "note": "Téléphone sans dongle. Classique. C'est le terrain."
+}
