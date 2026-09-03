@@ -12,7 +12,7 @@
   "plafond": 1e-6,
   "marge": null,
   "raisons": ["quelle absente", "temoin absent", "epsilon absent", "horizon absent"],
-  "simule": true,
+  "simule": false,
   "juridiction": "QC",
   "langue": "fr-CA",
   "pose_at": "2026-08-31T22:18:00Z",
