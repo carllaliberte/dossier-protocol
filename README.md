@@ -6,7 +6,7 @@ DOSSIER lie QUELLE + TÉMOIN + EPSILON + HORIZON. Il n'invente pas un canal quan
 `quantique` seulement si MODE le dit. L'existence d'un dossier n'est pas une frappe.
 
 Où / qui / quand restent sur leurs rails (SITUS, FIGURE, HORIZON).
-Cette rail est l'enveloppe. MODE juge.
+Ce rail est l'enveloppe. MODE juge.
 
 Ce dépôt est la version 0. Téléphone + libre. MIT. Voir [INTERDIT.md](INTERDIT.md).
 
@@ -26,9 +26,9 @@ Sans les quatre : `classique`. C'est le défaut honnête.
 | EPSILON | composable ε ∈ (0, 1) **exclusif** |
 | HORIZON | suite + jour calendaire `YYYY-MM-DD` encore devant |
 
-CHSH seulement via TÉMOIN, et seulement ≤ Tsirelson. Cette rail n'invente pas un canal, un photon, ni un Bell.
+CHSH seulement via TÉMOIN, et seulement ≤ Tsirelson. Ce rail n'invente pas un canal, un photon, ni un Bell.
 
-## Verrous physiques (cette rail)
+## Verrous physiques (ce rail)
 
 - **INTERDIT 1.** Un dossier existant n'est pas `mode: quantique`.
 - **INTERDIT 2.** IBM / QuNetSim / webcam comme borne → pas quantique.
@@ -64,13 +64,13 @@ Verrous physiques (stdlib, sans paquets en plus) :
 python3 -m unittest discover -s tests -v
 ```
 
-## Vérifié vs assumé
+## Vérifié vs présumé
 
 Les tests verrouillent les lignes ci-dessous. Rien dans ce dépôt n'est un théorème. Rien ici n'est un sceau QUANTUM.
 
 | Affirmation | Statut |
 |---|---|
-| `lier` vide / sans rails → `classique` | **vérifié** par les tests de cette rail |
+| `lier` vide / sans rails → `classique` | **vérifié** par les tests de ce rail |
 | dossier existant ≠ `mode: quantique` | **vérifié** |
 | IBM / QuNetSim / webcam comme borne → pas quantique | **vérifié** |
 | Σε > plafond → classique, pas vendue comme sûre | **vérifié** |
@@ -83,7 +83,7 @@ Les tests verrouillent les lignes ci-dessous. Rien dans ce dépôt n'est un thé
 | UFHY1 comme date refusée ; jour passé ou absent → pas quantique | **vérifié** |
 | `juger` garde le `dossier_id` existant et n'écrit que si demandé | **vérifié** |
 | mot QUANTUM hors de la carte JSON | **vérifié** |
-| sens Portmann–Renner de ε | **assumé** (papier, pas prouvé ici) |
+| sens Portmann–Renner de ε | **présumé** (papier, pas prouvé ici) |
 | signature QUANTUM | **plus tard** — clés hors Git, pas dans ce dépôt |
 | EasyCrypt / couche formelle | **pas ici** |
 | photon / Bell / canal quantique inventé | **refusé** |
@@ -100,7 +100,7 @@ Voir [INTERDIT.md](INTERDIT.md). En bref :
 6. Pas de token, pas de badge production.
 7. Ne pas écrire `ε=0`. Ne pas écrire `ε=1` comme borne.
 8. Ne pas estampiller `simule=true` juste parce que le mode est classique.
-9. Ne pas inventer un CHSH ni un canal sur cette rail.
+9. Ne pas inventer un CHSH ni un canal sur ce rail.
 10. Ne pas écrire UFHY1 comme date de calendrier. Jour absent ou passé n'est pas quantique.
 
 Le défaut est `classique`. Refuser ce défaut est le seul mensonge.
@@ -125,7 +125,7 @@ MIT (protocoles) · Apache-2.0 (œil UNFORGE). QUANTUM signe **plus tard**. Les 
 ## Fichiers
 
 - [`INTERDIT.md`](INTERDIT.md) — ce qu'on ne prétend pas
-- [`JUGE.md`](JUGE.md) — cette rail nomme le dossier, MODE juge
+- [`JUGE.md`](JUGE.md) — ce rail nomme le dossier, MODE juge
 - [`schema/dossier.v0.json`](schema/dossier.v0.json)
 - [`dossier.py`](dossier.py) — `python3 dossier.py lier` / `lire` / `juger`
 - [`examples/classique.dossier.json`](examples/classique.dossier.json) — téléphone sans dongle
