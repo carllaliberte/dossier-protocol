@@ -188,7 +188,7 @@ class Interdit1ExistenceIsNotQuantique(unittest.TestCase):
 
 class Interdit2IbmQunetsimWebcam(unittest.TestCase):
     def test_ibm_as_borne_is_not_quantique(self):
-        jugement = _juger(quelle=_quelle(appareil="IBM Quantum Processor"))
+        jugement = _juger(quelle=_quelle(appareil="IBM Quantum"))
         self.assertEqual(jugement["mode"], "classique")
         self.assertTrue(any("ibm" in r for r in jugement["raisons"]))
 
@@ -201,6 +201,11 @@ class Interdit2IbmQunetsimWebcam(unittest.TestCase):
         jugement = _juger(quelle=_quelle(appareil="webcam entropy"))
         self.assertEqual(jugement["mode"], "classique")
         self.assertTrue(any("webcam" in r for r in jugement["raisons"]))
+
+    def test_ibm_letters_inside_another_word_do_not_trip_borne(self):
+        jugement = _juger(quelle=_quelle(appareil="libmanifold QRNG"))
+        self.assertFalse(any("borne ibm" in r for r in jugement["raisons"]))
+        self.assertEqual(jugement["mode"], "quantique")
 
     def test_four_gates_without_faux_borne_may_be_quantique(self):
         jugement = _juger()
