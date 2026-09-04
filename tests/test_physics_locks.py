@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 import subprocess
 import sys
 import tempfile
@@ -569,7 +570,86 @@ class ReadmeDoorCopy(unittest.TestCase):
         self.assertIn("`mode: quantique` parce que le dossier existe.", text)
         self.assertIn("Job IBM / QuNetSim / webcam comme borne.", text)
         self.assertIn("Token, badge production.", text)
+        self.assertIn("ε=0 (mensonge). Intervalle (0, 1) exclusif. ε=1 comme borne.", text)
+        self.assertIn("`simule=true` sans carte présentée.", text)
+        self.assertIn("CHSH hors TÉMOIN. CHSH > Tsirelson. Canal inventé.", text)
+        self.assertIn("UFHY1 est une suite, pas une date. Jour d'horizon passé ou absent.", text)
         self.assertIn("Le défaut est `classique`.", text)
+
+
+class InterditRitualAgreesWithDoor(unittest.TestCase):
+    """Door README and ritual INTERDIT.md must name the same numbered locks."""
+
+    SHARED = {
+        1: ("mode: quantique",),
+        2: ("IBM", "QuNetSim", "webcam"),
+        3: ("plafond",),
+        4: ("QUELLE",),
+        5: ("Bell", "FIGURE"),
+        6: ("token", "badge"),
+        7: ("ε=0", "(0, 1)"),
+        8: ("simule",),
+        9: ("CHSH", "TÉMOIN"),
+        10: ("UFHY1",),
+    }
+
+    def _ritual_items(self, text):
+        return {int(n): body.strip() for n, body in re.findall(r"^(\d+)\.\s+(.+)$", text, re.M)}
+
+    def _door_locks(self, text):
+        return {
+            int(n): body.strip()
+            for n, body in re.findall(r"\*\*INTERDIT (\d+)\.\*\*\s+(.+)", text)
+        }
+
+    def _v0_is_not(self, text):
+        m = re.search(r"^## What v0 is not\s*\n(.*?)(?=^## |\Z)", text, re.M | re.S)
+        self.assertIsNotNone(m, "README missing ## What v0 is not")
+        return {int(n): body.strip() for n, body in re.findall(r"^(\d+)\.\s+(.+)$", m.group(1), re.M)}
+
+    def _has(self, haystack, needle):
+        return needle.lower() in haystack.lower()
+
+    def test_readme_and_interdit_share_numbers_1_to_10(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        ritual = (ROOT / "INTERDIT.md").read_text(encoding="utf-8")
+        expected = list(range(1, 11))
+        ritual_items = self._ritual_items(ritual)
+        door_locks = self._door_locks(readme)
+        v0_is_not = self._v0_is_not(readme)
+        self.assertEqual(sorted(ritual_items), expected)
+        self.assertEqual(sorted(door_locks), expected)
+        self.assertEqual(sorted(v0_is_not), expected)
+
+    def test_each_number_shares_the_door_lock_tokens(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        ritual = (ROOT / "INTERDIT.md").read_text(encoding="utf-8")
+        ritual_items = self._ritual_items(ritual)
+        door_locks = self._door_locks(readme)
+        for n, tokens in self.SHARED.items():
+            for token in tokens:
+                self.assertTrue(
+                    self._has(ritual_items[n], token),
+                    f"INTERDIT.md #{n} missing {token!r}: {ritual_items[n]}",
+                )
+                self.assertTrue(
+                    self._has(door_locks[n], token),
+                    f"README INTERDIT {n} missing {token!r}: {door_locks[n]}",
+                )
+
+    def test_door_seven_to_ten_match_existing_physics(self):
+        ritual = (ROOT / "INTERDIT.md").read_text(encoding="utf-8")
+        items = self._ritual_items(ritual)
+        self.assertIn("exclusif", items[7])
+        self.assertIn("ε=1", items[7])
+        self.assertNotIn("(0, 1]", items[7])
+        self.assertIn("présentée", items[8])
+        self.assertIn("Tsirelson", items[9])
+        self.assertIn("Canal inventé", items[9])
+        self.assertIn("suite", items[10])
+        self.assertIn("date", items[10])
+        self.assertIn("passé", items[10])
+        self.assertIn("absent", items[10])
 
 
 if __name__ == "__main__":
