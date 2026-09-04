@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 import sys
 import uuid
 from datetime import date, datetime, timezone
@@ -15,6 +16,10 @@ FORMAT = "dossier.v0"
 TSIRELSON = 2 * math.sqrt(2)
 PLAFOND = 1e-6
 FAUX_BORNES = ("ibm", "qunetsim", "webcam")
+_FAUX_BORNE_RE = {
+    nom: re.compile(r"\b" + re.escape(nom) + r"\b", re.IGNORECASE)
+    for nom in FAUX_BORNES
+}
 SUITES = ("UFHY1", "mldsa87", "ed25519")
 
 
@@ -111,9 +116,9 @@ def _faux_bornes(*cartes) -> list[str]:
     for c in cartes:
         if not isinstance(c, dict):
             continue
-        blob = json.dumps(c, ensure_ascii=False).lower()
+        blob = json.dumps(c, ensure_ascii=False)
         for nom in FAUX_BORNES:
-            if nom in blob and nom not in vues:
+            if nom not in vues and _FAUX_BORNE_RE[nom].search(blob):
                 vues.append(nom)
                 raisons.append("borne " + nom + " : pas quantique")
     return raisons
