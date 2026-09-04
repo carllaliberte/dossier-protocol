@@ -563,7 +563,11 @@ class ReadmeDoorCopy(unittest.TestCase):
         self.assertIn("INTERDIT 10", text)
         self.assertIn("FRAÎCHEUR", text)
         self.assertIn("MONOGAMIE", text)
-        self.assertIn("Verified vs assumed", text)
+        self.assertIn("Vérifié vs assumé", text)
+        self.assertNotIn("Verified vs assumed", text)
+        self.assertNotIn("## How to run", text)
+        self.assertNotIn("## Physics locks (this rail)", text)
+        self.assertNotIn("## What v0 is not", text)
 
     def test_copy_on_this_rail_has_no_imagine_word(self):
         for rel in ("README.md", "INTERDIT.md", "JUGE.md", "dossier.py"):
@@ -608,8 +612,8 @@ class InterditRitualAgreesWithDoor(unittest.TestCase):
         }
 
     def _v0_is_not(self, text):
-        m = re.search(r"^## What v0 is not\s*\n(.*?)(?=^## |\Z)", text, re.M | re.S)
-        self.assertIsNotNone(m, "README missing ## What v0 is not")
+        m = re.search(r"^## Ce que v0 n'est pas\s*\n(.*?)(?=^## |\Z)", text, re.M | re.S)
+        self.assertIsNotNone(m, "README missing ## Ce que v0 n'est pas")
         return {int(n): body.strip() for n, body in re.findall(r"^(\d+)\.\s+(.+)$", m.group(1), re.M)}
 
     def _has(self, haystack, needle):

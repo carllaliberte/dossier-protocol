@@ -3,48 +3,48 @@
 **Une enveloppe. MODE juge. Sans bornes = classique.**
 
 DOSSIER lie QUELLE + TÉMOIN + EPSILON + HORIZON. Il n'invente pas un canal quantique.
-`quantique` only if MODE says so. Existence of a dossier is not a mint.
+`quantique` seulement si MODE le dit. L'existence d'un dossier n'est pas une frappe.
 
-Place / who / when stay on their own rails (SITUS, FIGURE, HORIZON).
-This rail is the envelope. MODE judges.
+Où / qui / quand restent sur leurs rails (SITUS, FIGURE, HORIZON).
+Cette rail est l'enveloppe. MODE juge.
 
-This repository is version 0. Phone + free. MIT. See [INTERDIT.md](INTERDIT.md).
+Ce dépôt est la version 0. Téléphone + libre. MIT. Voir [INTERDIT.md](INTERDIT.md).
 
-## Envelope
+## Enveloppe
 
 ```
 QUELLE + TÉMOIN + EPSILON + HORIZON  →  dossier  →  verdict MODE
 ```
 
-Sans les quatre : `classique`. That is the honest default.
-`quantique` seulement si MODE le dit. A dossier on disk is not a gate.
+Sans les quatre : `classique`. C'est le défaut honnête.
+`quantique` seulement si MODE le dit. Un dossier sur disque n'est pas une porte.
 
-| Bind | Gate MODE still asks |
+| Lien | Porte que MODE exige encore |
 |---|---|
-| QUELLE | `qrng` \| `qkd` + appareil + not simulated |
-| TÉMOIN | `fabricant` \| `di` (`di` requires a transcript) |
-| EPSILON | composable ε ∈ (0, 1) **exclusive** |
-| HORIZON | suite + calendar day `YYYY-MM-DD` still ahead |
+| QUELLE | `qrng` \| `qkd` + appareil + pas simulé |
+| TÉMOIN | `fabricant` \| `di` (`di` exige un transcript) |
+| EPSILON | composable ε ∈ (0, 1) **exclusif** |
+| HORIZON | suite + jour calendaire `YYYY-MM-DD` encore devant |
 
-CHSH only via TÉMOIN, and only ≤ Tsirelson. This rail does not mint a channel, a photon, or a Bell.
+CHSH seulement via TÉMOIN, et seulement ≤ Tsirelson. Cette rail n'invente pas un canal, un photon, ni un Bell.
 
-## Physics locks (this rail)
+## Verrous physiques (cette rail)
 
-- **INTERDIT 1.** A dossier existing is not `mode: quantique`.
-- **INTERDIT 2.** IBM / QuNetSim / webcam as borne → not quantique.
-- **INTERDIT 3.** Σε > plafond → refuse / classique. Never sold as sure. BUDGET : Σε ≤ 10⁻⁶.
-- **INTERDIT 4.** Replay QUELLE sha256 → FRAÎCHEUR refuse.
-- **INTERDIT 5.** Same Bell transcript on two FIGURE → MONOGAMIE refuse. One transcript, one FIGURE.
-- **INTERDIT 6.** No token. No production badge.
-- **INTERDIT 7.** ε=0 is a lie. Interval is (0, 1) exclusive (align [epsilon-protocol](https://github.com/carllaliberte/epsilon-protocol)). ε=1 is not a bound.
-- **INTERDIT 8.** `simule` true only if a presented card claims it (quelle / temoin / bruit). Do not auto-stamp `simule=true` because mode is classique.
-- **INTERDIT 9.** CHSH only via TÉMOIN; ≤ Tsirelson. Do not mint a channel here. MARGE : 2√2−S.
-- **INTERDIT 10.** UFHY1 is a suite, not a date. Expired / missing horizon day → not quantique.
+- **INTERDIT 1.** Un dossier existant n'est pas `mode: quantique`.
+- **INTERDIT 2.** IBM / QuNetSim / webcam comme borne → pas quantique.
+- **INTERDIT 3.** Σε > plafond → refuse / classique. Jamais vendue comme sûre. BUDGET : Σε ≤ 10⁻⁶.
+- **INTERDIT 4.** Rejouer une empreinte QUELLE sha256 → FRAÎCHEUR refuse.
+- **INTERDIT 5.** Même transcript Bell sur deux FIGURE → MONOGAMIE refuse. Un transcript, une FIGURE.
+- **INTERDIT 6.** Pas de token. Pas de badge production.
+- **INTERDIT 7.** ε=0 est un mensonge. Intervalle (0, 1) exclusif (aligné [epsilon-protocol](https://github.com/carllaliberte/epsilon-protocol)). ε=1 n'est pas une borne.
+- **INTERDIT 8.** `simule` true seulement si une carte présentée le dit (quelle / temoin / bruit). Ne pas estampiller `simule=true` parce que le mode est classique.
+- **INTERDIT 9.** CHSH seulement via TÉMOIN ; ≤ Tsirelson. Ne pas inventer un canal ici. MARGE : 2√2−S.
+- **INTERDIT 10.** UFHY1 est une suite, pas une date. Jour d'horizon passé ou absent → pas quantique.
 
-Default `classique`. No invented photon or Bell. QUANTUM stays off the JSON card — the card is not a seal.
-Judgment = Carl: `python3 dossier.py juger`.
+Défaut `classique`. Pas de photon ni de Bell inventé. QUANTUM reste hors de la carte JSON — la carte n'est pas un sceau.
+Judgment = Carl : `python3 dossier.py juger`.
 
-## How to run
+## Comment lancer
 
 ```bash
 python3 dossier.py lier
@@ -54,56 +54,56 @@ python3 dossier.py juger examples/classique.dossier.json
 python3 dossier.py juger --quelle q.json --temoin t.json --epsilon e.json --horizon h.json
 ```
 
-Empty `lier` (no rails) → `mode: classique`. If it prints `quantique`, the system is broken.
+`lier` vide (sans rails) → `mode: classique`. S'il imprime `quantique`, le système est cassé.
 
-`juger` judges an existing dossier JSON, or the same `--quelle` / `--temoin` / `--epsilon` / `--horizon` rails. It does not mint a new `dossier_id`. It does not write a new carte unless `--vers` is asked.
+`juger` juge un JSON dossier existant, ou les mêmes rails `--quelle` / `--temoin` / `--epsilon` / `--horizon`. Il ne frappe pas un nouveau `dossier_id`. Il n'écrit pas une nouvelle carte sauf si `--vers` est demandé.
 
-Physics locks (stdlib, no extra packages):
+Verrous physiques (stdlib, sans paquets en plus) :
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
 
-## Verified vs assumed
+## Vérifié vs assumé
 
-Tests lock the rows below. Nothing in this repository is a theorem. Nothing here is a QUANTUM seal.
+Les tests verrouillent les lignes ci-dessous. Rien dans ce dépôt n'est un théorème. Rien ici n'est un sceau QUANTUM.
 
-| Claim | Status |
+| Affirmation | Statut |
 |---|---|
-| empty `lier` / no rails → `classique` | **verified** by tests on this rail |
-| existing dossier ≠ `mode: quantique` | **verified** |
-| IBM / QuNetSim / webcam as borne → not quantique | **verified** |
-| Σε > plafond → classique, not sold as sure | **verified** |
-| replay QUELLE sha256 → fraicheur refuse | **verified** |
-| same Bell transcript on two FIGURE → monogamie refuse | **verified** |
-| no token / production badge on the JSON card | **verified** |
-| ε=0 refused; ε=1 refused; interval (0, 1) exclusive | **verified** |
-| `simule` only if a presented card claims it | **verified** |
-| CHSH only via TÉMOIN; > Tsirelson refused; no minted channel | **verified** |
-| UFHY1 as a date refused; expired / missing day → not quantique | **verified** |
-| `juger` keeps the existing `dossier_id` and does not write unless asked | **verified** |
-| QUANTUM word off the JSON card | **verified** |
-| Portmann–Renner meaning of ε | **assumed** (paper, not proven here) |
-| QUANTUM signature | **later** — keys off Git, not in this repo |
-| EasyCrypt / formal-layer | **not here** |
-| invented photon / Bell / quantum channel | **refused** |
+| `lier` vide / sans rails → `classique` | **vérifié** par les tests de cette rail |
+| dossier existant ≠ `mode: quantique` | **vérifié** |
+| IBM / QuNetSim / webcam comme borne → pas quantique | **vérifié** |
+| Σε > plafond → classique, pas vendue comme sûre | **vérifié** |
+| rejouer QUELLE sha256 → fraicheur refuse | **vérifié** |
+| même transcript Bell sur deux FIGURE → monogamie refuse | **vérifié** |
+| pas de token / badge production sur la carte JSON | **vérifié** |
+| ε=0 refusé ; ε=1 refusé ; intervalle (0, 1) exclusif | **vérifié** |
+| `simule` seulement si une carte présentée le dit | **vérifié** |
+| CHSH seulement via TÉMOIN ; > Tsirelson refusé ; pas de canal inventé | **vérifié** |
+| UFHY1 comme date refusée ; jour passé ou absent → pas quantique | **vérifié** |
+| `juger` garde le `dossier_id` existant et n'écrit que si demandé | **vérifié** |
+| mot QUANTUM hors de la carte JSON | **vérifié** |
+| sens Portmann–Renner de ε | **assumé** (papier, pas prouvé ici) |
+| signature QUANTUM | **plus tard** — clés hors Git, pas dans ce dépôt |
+| EasyCrypt / couche formelle | **pas ici** |
+| photon / Bell / canal quantique inventé | **refusé** |
 
-## What v0 is not
+## Ce que v0 n'est pas
 
-See [INTERDIT.md](INTERDIT.md). In short:
+Voir [INTERDIT.md](INTERDIT.md). En bref :
 
-1. Do not write `mode: quantique` because the dossier exists.
-2. Do not paste a Job IBM / QuNetSim / webcam as a borne.
-3. Do not sell Σε > plafond as sure.
-4. Do not replay a QUELLE sha256.
-5. Do not bind one Bell transcript to two FIGURE.
-6. No token, no production badge.
-7. Do not write `ε=0`. Do not write `ε=1` as a bound.
-8. Do not stamp `simule=true` just because the mode is classique.
-9. Do not mint a CHSH or a channel on this rail.
-10. Do not write UFHY1 as a calendar date. Missing or expired day is not quantique.
+1. Ne pas écrire `mode: quantique` parce que le dossier existe.
+2. Ne pas coller un Job IBM / QuNetSim / webcam comme borne.
+3. Ne pas vendre Σε > plafond comme sûre.
+4. Ne pas rejouer une empreinte QUELLE sha256.
+5. Ne pas lier un transcript Bell à deux FIGURE.
+6. Pas de token, pas de badge production.
+7. Ne pas écrire `ε=0`. Ne pas écrire `ε=1` comme borne.
+8. Ne pas estampiller `simule=true` juste parce que le mode est classique.
+9. Ne pas inventer un CHSH ni un canal sur cette rail.
+10. Ne pas écrire UFHY1 comme date de calendrier. Jour absent ou passé n'est pas quantique.
 
-The default is `classique`. Refusing that default is the only lie.
+Le défaut est `classique`. Refuser ce défaut est le seul mensonge.
 
 ## Famille
 
