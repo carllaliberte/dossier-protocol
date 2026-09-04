@@ -1,7 +1,7 @@
 # Juge
 
 DOSSIER est une enveloppe. MODE juge. Sans les quatre : classique.
-Cette rail nomme le dossier. Elle ne juge pas les quatre.
+Ce rail nomme le dossier. Il ne juge pas les quatre.
 
 CLI local : `python3 dossier.py juger` — Judgment = Carl.
 `juger` un dossier existant ne frappe pas `quantique` parce que le fichier existe.
